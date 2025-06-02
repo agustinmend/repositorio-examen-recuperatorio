@@ -1,0 +1,27 @@
+<form (ngSubmit)="Crear(Nombre , Descripcion , Fecha , Tipo , Estado)">
+  <input [(ngModel)]="Nombre" name="Nombre" placeholder="Nombre" required>
+  <input [(ngModel)]="Descripcion" name="Descripcion" placeholder="Descripcion" required>
+  <input [(ngModel)]="Fecha" name="Fecha" placeholder="Fecha" required>
+  <select [(ngModel)]="Tipo" name="Tipo" placeholder="Tipo">
+    <option value="Conferencia">Conferencia</option>
+    <option value="taller">taller</option>
+    <option value="feria">feria</option>
+  </select>
+  <select [(ngModel)]="Estado">
+    <option value="Borrador">Borrador</option>
+    <option value="Publicado">Publicado</option>
+    <option value="Cancelado">Cancelado</option>
+  </select>
+  <button type="submit">Agregar</button>
+</form>
+<ul>
+  <li *ngFor="let evento of programa.eventos ; let i = index">
+    <h3>Nombre: {{evento.Nombre}}</h3>
+    <P>Descripcion: {{evento.Descripcion}}</P>
+    <p>Fecha: {{evento.Fecha}}</p>
+    <p>Tipo: {{evento.Tipo}}</p>
+    <p>Estado: {{evento.Estado}}</p>
+    <button (click)="Eliminar(i)"></button>
+  </li>
+</ul>
+<router-outlet />
